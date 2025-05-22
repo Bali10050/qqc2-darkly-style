@@ -2,20 +2,20 @@
  * SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
  */
 
-#include "breezedial.h"
+#include "darklydial.h"
 #include <QGuiApplication>
 #include <QPainter>
 
-class BreezeDialPrivate
+class DarklyDialPrivate
 {
-    Q_DECLARE_PUBLIC(BreezeDial)
-    Q_DISABLE_COPY(BreezeDialPrivate)
+    Q_DECLARE_PUBLIC(DarklyDial)
+    Q_DISABLE_COPY(DarklyDialPrivate)
 public:
-    BreezeDialPrivate(BreezeDial *qq)
+    DarklyDialPrivate(DarklyDial *qq)
         : q_ptr(qq)
     {
     }
-    BreezeDial *const q_ptr;
+    DarklyDial *const q_ptr;
 
     QFontMetricsF fontMetrics = QFontMetricsF(QGuiApplication::font());
 
@@ -28,24 +28,24 @@ public:
     bool notchesVisible = false;
 };
 
-BreezeDial::BreezeDial(QQuickItem *parent)
+DarklyDial::DarklyDial(QQuickItem *parent)
     : QQuickPaintedItem(parent)
-    , d_ptr(new BreezeDialPrivate(this))
+    , d_ptr(new DarklyDialPrivate(this))
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     connect(qGuiApp, &QGuiApplication::fontChanged, this, [this, d]() {
         d->fontMetrics = QFontMetricsF(QGuiApplication::font());
         update();
     });
 }
 
-BreezeDial::~BreezeDial() noexcept
+DarklyDial::~DarklyDial() noexcept
 {
 }
 
-void BreezeDial::paint(QPainter *painter)
+void DarklyDial::paint(QPainter *painter)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (width() <= 0 || height() <= 0 || d->grooveThickness <= 0)
         return;
 
@@ -74,15 +74,15 @@ void BreezeDial::paint(QPainter *painter)
     painter->drawArc(paintRect, startAngle, fillSpanAngle);
 }
 
-QColor BreezeDial::backgroundBorderColor() const
+QColor DarklyDial::backgroundBorderColor() const
 {
-    Q_D(const BreezeDial);
+    Q_D(const DarklyDial);
     return d->backgroundBorderColor;
 }
 
-void BreezeDial::setBackgroundBorderColor(const QColor &color)
+void DarklyDial::setBackgroundBorderColor(const QColor &color)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (d->backgroundBorderColor == color)
         return;
 
@@ -91,15 +91,15 @@ void BreezeDial::setBackgroundBorderColor(const QColor &color)
     Q_EMIT backgroundBorderColorChanged();
 }
 
-QColor BreezeDial::backgroundColor() const
+QColor DarklyDial::backgroundColor() const
 {
-    Q_D(const BreezeDial);
+    Q_D(const DarklyDial);
     return d->backgroundColor;
 }
 
-void BreezeDial::setBackgroundColor(const QColor &color)
+void DarklyDial::setBackgroundColor(const QColor &color)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (d->backgroundColor == color)
         return;
 
@@ -108,15 +108,15 @@ void BreezeDial::setBackgroundColor(const QColor &color)
     Q_EMIT backgroundColorChanged();
 }
 
-QColor BreezeDial::fillBorderColor() const
+QColor DarklyDial::fillBorderColor() const
 {
-    Q_D(const BreezeDial);
+    Q_D(const DarklyDial);
     return d->fillBorderColor;
 }
 
-void BreezeDial::setFillBorderColor(const QColor &color)
+void DarklyDial::setFillBorderColor(const QColor &color)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (d->fillBorderColor == color)
         return;
 
@@ -125,15 +125,15 @@ void BreezeDial::setFillBorderColor(const QColor &color)
     Q_EMIT fillBorderColorChanged();
 }
 
-QColor BreezeDial::fillColor() const
+QColor DarklyDial::fillColor() const
 {
-    Q_D(const BreezeDial);
+    Q_D(const DarklyDial);
     return d->fillColor;
 }
 
-void BreezeDial::setFillColor(const QColor &color)
+void DarklyDial::setFillColor(const QColor &color)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (d->fillColor == color)
         return;
 
@@ -142,15 +142,15 @@ void BreezeDial::setFillColor(const QColor &color)
     Q_EMIT fillColorChanged();
 }
 
-qreal BreezeDial::angle() const
+qreal DarklyDial::angle() const
 {
-    Q_D(const BreezeDial);
+    Q_D(const DarklyDial);
     return d->angle;
 }
 
-void BreezeDial::setAngle(const qreal angle)
+void DarklyDial::setAngle(const qreal angle)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (d->angle == angle)
         return;
 
@@ -159,15 +159,15 @@ void BreezeDial::setAngle(const qreal angle)
     Q_EMIT angleChanged();
 }
 
-qreal BreezeDial::grooveThickness() const
+qreal DarklyDial::grooveThickness() const
 {
-    Q_D(const BreezeDial);
+    Q_D(const DarklyDial);
     return d->grooveThickness;
 }
 
-void BreezeDial::setGrooveThickness(const qreal grooveThickness)
+void DarklyDial::setGrooveThickness(const qreal grooveThickness)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (d->grooveThickness == grooveThickness)
         return;
 
@@ -176,15 +176,15 @@ void BreezeDial::setGrooveThickness(const qreal grooveThickness)
     Q_EMIT grooveThicknessChanged();
 }
 
-bool BreezeDial::notchesVisible() const
+bool DarklyDial::notchesVisible() const
 {
-    Q_D(const BreezeDial);
+    Q_D(const DarklyDial);
     return d->notchesVisible;
 }
 
-void BreezeDial::setNotchesVisible(const bool notchesVisible)
+void DarklyDial::setNotchesVisible(const bool notchesVisible)
 {
-    Q_D(BreezeDial);
+    Q_D(DarklyDial);
     if (d->notchesVisible == notchesVisible)
         return;
 
@@ -193,4 +193,4 @@ void BreezeDial::setNotchesVisible(const bool notchesVisible)
     Q_EMIT notchesVisibleChanged();
 }
 
-#include "moc_breezedial.cpp"
+#include "moc_darklydial.cpp"

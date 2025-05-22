@@ -14,7 +14,7 @@
 #include <QtGui/qcolor.h>
 #include <QtQml/qqml.h>
 
-namespace Breeze
+namespace Darkly
 {
 
 class QQuickIconPrivate;

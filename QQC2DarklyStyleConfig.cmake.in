@@ -9,6 +9,6 @@ endif()
 
 # Any changes in this ".cmake" file will be overwritten by CMake, the source is the ".cmake.in" file.
 
-set(QQC2BreezeStyle_INSTALL_PREFIX "@PACKAGE_CMAKE_INSTALL_PREFIX@")
+set(QQC2DarklyStyle_INSTALL_PREFIX "@PACKAGE_CMAKE_INSTALL_PREFIX@")
 
-include("${CMAKE_CURRENT_LIST_DIR}/QQC2BreezeStyleTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/QQC2DarklyStyleTargets.cmake")

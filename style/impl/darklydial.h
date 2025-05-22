@@ -2,15 +2,15 @@
  * SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
  */
 
-#ifndef BREEZEDIAL_H
-#define BREEZEDIAL_H
+#ifndef DARKLYDIAL_H
+#define DARKLYDIAL_H
 
 #include <QColor>
 #include <QQuickPaintedItem>
 
-class BreezeDialPrivate;
+class DarklyDialPrivate;
 
-class BreezeDial : public QQuickPaintedItem
+class DarklyDial : public QQuickPaintedItem
 {
     Q_OBJECT
     Q_PROPERTY(QColor backgroundBorderColor READ backgroundBorderColor WRITE setBackgroundBorderColor NOTIFY backgroundBorderColorChanged)
@@ -20,11 +20,11 @@ class BreezeDial : public QQuickPaintedItem
     Q_PROPERTY(qreal angle READ angle WRITE setAngle NOTIFY angleChanged)
     Q_PROPERTY(qreal grooveThickness READ grooveThickness WRITE setGrooveThickness NOTIFY grooveThicknessChanged)
     Q_PROPERTY(bool notchesVisible READ notchesVisible WRITE setNotchesVisible NOTIFY notchesVisibleChanged)
-    QML_NAMED_ELEMENT(BreezeDial)
+    QML_NAMED_ELEMENT(DarklyDial)
 
 public:
-    explicit BreezeDial(QQuickItem *parent = nullptr);
-    ~BreezeDial();
+    explicit DarklyDial(QQuickItem *parent = nullptr);
+    ~DarklyDial();
 
     void paint(QPainter *painter) override;
 
@@ -59,9 +59,9 @@ Q_SIGNALS:
     void notchesVisibleChanged();
 
 private:
-    const std::unique_ptr<BreezeDialPrivate> d_ptr;
-    Q_DECLARE_PRIVATE(BreezeDial)
-    Q_DISABLE_COPY(BreezeDial)
+    const std::unique_ptr<DarklyDialPrivate> d_ptr;
+    Q_DECLARE_PRIVATE(DarklyDial)
+    Q_DISABLE_COPY(DarklyDial)
 };
 
 #endif

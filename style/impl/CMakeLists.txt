@@ -1,4 +1,4 @@
-ecm_add_qml_module(BreezeImpl URI "org.kde.breeze.impl"
+ecm_add_qml_module(DarklyImpl URI "org.kde.darkly.impl"
     GENERATE_PLUGIN_SOURCE
     DEPENDENCIES
     "QtQuick.Controls"
@@ -6,9 +6,9 @@ ecm_add_qml_module(BreezeImpl URI "org.kde.breeze.impl"
     "org.kde.kirigami"
 )
 
-target_sources(BreezeImpl PRIVATE
-    breezedial.cpp
-    breezedial.h
+target_sources(DarklyImpl PRIVATE
+    darklydial.cpp
+    darklydial.h
     iconlabellayout.cpp
     iconlabellayout.h
     iconlabellayout_p.h
@@ -24,7 +24,7 @@ target_sources(BreezeImpl PRIVATE
 set_source_files_properties(Units.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 set_source_files_properties(Theme.qml PROPERTIES QT_QML_SINGLETON_TYPE TRUE)
 
-ecm_target_qml_sources(BreezeImpl SOURCES
+ecm_target_qml_sources(DarklyImpl SOURCES
     ButtonBackground.qml
     CheckIndicator.qml
     ComboBoxBackground.qml
@@ -54,7 +54,7 @@ ecm_target_qml_sources(BreezeImpl SOURCES
     Units.qml
 )
 
-target_link_libraries(BreezeImpl PRIVATE
+target_link_libraries(DarklyImpl PRIVATE
     Qt6::Core
     Qt6::Gui
     Qt6::Qml
@@ -65,4 +65,4 @@ target_link_libraries(BreezeImpl PRIVATE
     KF6::GuiAddons
 )
 
-ecm_finalize_qml_module(BreezeImpl EXPORT QQC2BreezeStyleTargets)
+ecm_finalize_qml_module(DarklyImpl EXPORT QQD2darklyStyleTargets)

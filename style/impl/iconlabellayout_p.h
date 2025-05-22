@@ -45,7 +45,7 @@ public:
     bool hasIcon = false;
     bool hasLabel = false;
 
-    Breeze::QQuickIcon icon = Breeze::QQuickIcon();
+    Darkly::QQuickIcon icon = Darkly::QQuickIcon();
     QString text = QString();
     QFont font = QFont();
     QColor color = QColor();
