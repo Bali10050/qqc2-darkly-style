@@ -6,7 +6,7 @@
 
 #include "qquickicon_p.h"
 
-namespace Breeze
+namespace Darkly
 {
 
 class QQuickIconPrivate : public QSharedData

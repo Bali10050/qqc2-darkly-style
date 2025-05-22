@@ -365,13 +365,13 @@ void IconLabelLayout::setHasLabel()
     Q_EMIT hasLabelChanged();
 }
 
-Breeze::QQuickIcon IconLabelLayout::icon() const
+Darkly::QQuickIcon IconLabelLayout::icon() const
 {
     Q_D(const IconLabelLayout);
     return d->icon;
 }
 
-void IconLabelLayout::setIcon(const Breeze::QQuickIcon &icon)
+void IconLabelLayout::setIcon(const Darkly::QQuickIcon &icon)
 {
     Q_D(IconLabelLayout);
     if (icon == d->icon) {

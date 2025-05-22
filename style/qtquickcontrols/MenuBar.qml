@@ -6,7 +6,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
-import org.kde.breeze.impl as Impl
+import org.kde.darkly.impl as Impl
 
 T.MenuBar {
     id: controlRoot

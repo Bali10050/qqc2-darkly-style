@@ -1,15 +1,15 @@
-ecm_add_qml_module(BreezeStyle URI "org.kde.breeze"
+ecm_add_qml_module(DarklyStyle URI "org.kde.darkly"
     GENERATE_PLUGIN_SOURCE
     DESIGNER_SUPPORTED
     DEPENDENCIES
     "QtQuick.Controls"
     "QtQuick.Window"
     "org.kde.kirigami"
-    "org.kde.breeze.impl"
+    "org.kde.darkly.impl"
     "org.kde.guiaddons"
 )
 
-ecm_target_qml_sources(BreezeStyle SOURCES
+ecm_target_qml_sources(DarklyStyle SOURCES
     AbstractButton.qml
     ApplicationWindow.qml
     BusyIndicator.qml
@@ -69,7 +69,7 @@ ecm_target_qml_sources(BreezeStyle SOURCES
 )
 
 if (NOT BUILD_SHARED_LIBS)
-    target_link_libraries(BreezeStyle PRIVATE org.kde.breeze)
+    target_link_libraries(DarklyStyle PRIVATE org.kde.darkly)
 endif()
 
-ecm_finalize_qml_module(BreezeStyle EXPORT QQC2BreezeStyleTargets)
+ecm_finalize_qml_module(DarklyStyle EXPORT QQC2DarklyStyleTargets)

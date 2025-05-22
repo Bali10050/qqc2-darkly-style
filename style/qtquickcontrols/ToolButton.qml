@@ -4,8 +4,8 @@
 import QtQuick
 import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
-import org.kde.breeze
-import org.kde.breeze.impl as Impl
+import org.kde.darkly
+import org.kde.darkly.impl as Impl
 
 T.ToolButton {
     id: control
