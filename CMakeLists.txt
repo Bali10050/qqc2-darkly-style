@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(qqc2-breeze-style)
+project(qqc2-darkly-style)
 set(PROJECT_VERSION "6.4.80")
 
 set(QT_MIN_VERSION "6.8.0")
@@ -16,7 +16,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} )
 ################# Disallow in-source build #################
 
 if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
-   message(FATAL_ERROR "qqc2-breeze-style requires an out of source build. Please create a separate build directory and run 'cmake -S /path/to/qqc2-breeze-style' there.")
+   message(FATAL_ERROR "qqc2-darkly-style requires an out of source build. Please create a separate build directory and run 'cmake -S /path/to/qqc2-darkly-style' there.")
 endif()
 
 # Make CPack available to easy generate binary packages
@@ -67,8 +67,8 @@ set_package_properties(ColorScheme PROPERTIES DESCRIPTION "KF6 ColorScheme frame
                       )
 
 ecm_setup_version(PROJECT
-    VARIABLE_PREFIX QQC2BREEZESTYLE
-    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/QQC2BreezeStyleConfigVersion.cmake"
+    VARIABLE_PREFIX QQC2DARKLYSTYLE
+    PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/QQC2DarklyStyleConfigVersion.cmake"
     SOVERSION 5)
 
 add_definitions(-DQT_NO_FOREACH)
@@ -79,20 +79,20 @@ add_subdirectory(style)
 
 add_subdirectory(kirigami-plasmadesktop-integration)
 
-set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/QQC2BreezeStyle")
+set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/QQC2DarklyStyle")
 
-install(EXPORT QQC2BreezeStyleTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE QQC2BreezeStyleTargets.cmake)
+install(EXPORT QQC2DarklyStyleTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE QQC2DarklyStyleTargets.cmake)
 
 configure_package_config_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/QQC2BreezeStyleConfig.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/QQC2BreezeStyleConfig.cmake"
+  "${CMAKE_CURRENT_SOURCE_DIR}/QQC2DarklyStyleConfig.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/QQC2DarklyStyleConfig.cmake"
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
   PATH_VARS  KDE_INSTALL_INCLUDEDIR_KF CMAKE_INSTALL_PREFIX
 )
 
 install(FILES
-  "${CMAKE_CURRENT_BINARY_DIR}/QQC2BreezeStyleConfig.cmake"
-  "${CMAKE_CURRENT_BINARY_DIR}/QQC2BreezeStyleConfigVersion.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/QQC2DarklyStyleConfig.cmake"
+  "${CMAKE_CURRENT_BINARY_DIR}/QQC2DarklyStyleConfigVersion.cmake"
   DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
   COMPONENT Devel
 )
