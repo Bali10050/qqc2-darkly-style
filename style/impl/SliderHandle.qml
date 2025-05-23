@@ -3,6 +3,7 @@
  */
 
 import QtQuick
+import Qt5Compat.GraphicalEffects
 import QtQuick.Templates as T
 import org.kde.kirigami as Kirigami
 
@@ -51,10 +52,35 @@ Impl.StandardRectangle {
     rotation: root.vertical && usePreciseHandle ? -90 : 0
 
     radius: height / 2
-    color: Kirigami.Theme.backgroundColor
+
+    color: Kirigami.Theme.backgroundColor/*
     border {
         width: Impl.Units.smallBorder
         color: root.pressed || root.visualFocus || root.hovered ? Kirigami.Theme.focusColor : Impl.Theme.separatorColor()
+    }*/
+    Rectangle {
+        id: butterfly
+        anchors.fill: parent
+        color: root.pressed || root.visualFocus || root.hovered ? Kirigami.Theme.focusColor : Kirigami.Theme.backgroundColor
+        anchors.rightMargin: 0
+        anchors.topMargin: 0
+        anchors.bottomMargin: 0
+        border.width: 2
+        border.color: root.pressed || root.visualFocus || root.hovered ? Kirigami.Theme.focusColor : Kirigami.Theme.backgroundColor
+        radius: height / 2
+        antialiasing: true
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        color: Kirigami.Theme.backgroundColor
+        anchors.rightMargin: 0
+        anchors.topMargin: -1
+        anchors.bottomMargin: 0
+        border.width: 2
+        border.color:Impl.Theme.separatorColor()
+        radius: height / 2
+        antialiasing: true
     }
 
     Behavior on border.color {
@@ -63,6 +89,15 @@ Impl.StandardRectangle {
             duration: Kirigami.Units.shortDuration
             easing.type: Easing.OutCubic
         }
+    }
+    DropShadow {
+        anchors.fill: parent
+        horizontalOffset: 0
+        verticalOffset: 3
+        radius: 3.0
+        samples: 6
+        color: "#20000000"
+        source: butterfly
     }
 
     Behavior on x {
