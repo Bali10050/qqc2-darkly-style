@@ -25,12 +25,12 @@ Impl.StandardRectangle {
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Button
     Kirigami.Theme.inherit: false
-    color: control.down || control.checked ? Kirigami.Theme.alternateBackgroundColor : Kirigami.Theme.backgroundColor
+    /*color: control.down || control.checked ? Kirigami.Theme.alternateBackgroundColor : Kirigami.Theme.backgroundColor
 
-    border {
-        width: Impl.Units.smallBorder
+    border {*/
+        /*width: Impl.Units.smallBorder*/
         color: control.down || control.checked || control.visualFocus || control.hovered ? Kirigami.Theme.focusColor : Impl.Theme.separatorColor();
-    }
+    /*}*/
 
     Behavior on color {
         enabled: control.down || control.checked
