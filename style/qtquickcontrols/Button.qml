@@ -93,7 +93,7 @@ T.Button {
                 return Kirigami.Theme.alternateBackgroundColor
             } else if (control.flat) {
                 return flatColor
-            } else {
+            } else if (hovered){return Impl.Theme.separatorColor()} else {
                 return Kirigami.Theme.backgroundColor
             }
         }
@@ -112,7 +112,7 @@ T.Button {
                 return Kirigami.Theme.alternateBackgroundColor
             } else if (control.flat) {
                 return flatColor
-            } else {
+            } else if (hovered){return Impl.Theme.separatorColor()} else {
                 return Kirigami.Theme.backgroundColor
             }
         }
@@ -120,14 +120,15 @@ T.Button {
         anchors.topMargin: 0
         anchors.bottomMargin: 0
         border.width: 1
-        border.color:
+        border.color: {
             if (highlightBackground) {
                 return Kirigami.Theme.alternateBackgroundColor
             } else if (control.flat) {
                 return flatColor
-            } else {
+            } else if (hovered){return Impl.Theme.separatorColor()} else {
                 return Kirigami.Theme.backgroundColor
             }
+        }
         radius: Impl.Units.smallRadius
     }
     DropShadow {
