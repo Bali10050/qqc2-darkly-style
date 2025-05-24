@@ -31,16 +31,16 @@ Impl.StandardRectangle {
 
     Kirigami.Theme.colorSet: Kirigami.Theme.Button
     Kirigami.Theme.inherit: false
-    color: highlightBackground ? Kirigami.Theme.alternateBackgroundColor : Kirigami.Theme.backgroundColor
+    color: highlightBackground ? Kirigami.Theme.focusColor : Impl.Theme.separatorColor()
 
     radius: Impl.Units.smallRadius
-
+/*
     border {
         width: Impl.Units.smallBorder
         color: highlightBorder ?
             Kirigami.Theme.focusColor : Impl.Theme.separatorColor()
             //Kirigami.ColorUtils.tintWithAlpha(root.color, Kirigami.Theme.textColor, 0.3)
-    }
+    }*/
 
     Behavior on color {
         enabled: highlightBackground
