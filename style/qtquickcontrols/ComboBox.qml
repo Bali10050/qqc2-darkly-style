@@ -5,6 +5,7 @@
  */
 
 import QtQuick
+import Qt5Compat.GraphicalEffects
 import QtQuick.Window
 import QtQuick.Templates as T
 import QtQuick.Controls as Controls
@@ -28,6 +29,9 @@ T.ComboBox {
     // palette: Kirigami.Theme.palette
     Kirigami.Theme.colorSet: control.editable ? Kirigami.Theme.View : Kirigami.Theme.Button
     Kirigami.Theme.inherit: false
+
+    property bool highlightBackground: control.down || control.checked
+    property bool highlightBorder: control.enabled && (control.down || control.checked || control.highlighted || control.visualFocus || control.hovered)
 
     spacing: Kirigami.Units.mediumSpacing
 
@@ -149,6 +153,60 @@ T.ComboBox {
                     }
                 }
             }
+        }
+        Rectangle {
+            anchors.fill: parent
+            color: {
+                if (highlightBackground) {
+                    return Kirigami.Theme.alternateBackgroundColor
+                } else if (control.flat) {
+                    return flatColor
+                } else if (hovered){return Impl.Theme.separatorColor()} else {
+                    return Kirigami.Theme.backgroundColor
+                }
+            }
+            anchors.rightMargin: 0
+            anchors.topMargin: -1
+            anchors.bottomMargin: 3
+            border.width: 2
+            border.color:Impl.Theme.separatorColor()
+            radius: Impl.Units.smallRadius
+        }
+        Rectangle {
+            anchors.fill: parent
+            id: butterfly
+            color: {
+                if (control.down) {
+                    return Kirigami.Theme.alternateBackgroundColor
+                } else if (control.flat) {
+                    return flatColor
+                } else if (hovered){return Impl.Theme.separatorColor()} else {
+                    return Kirigami.Theme.backgroundColor
+                }
+            }
+            anchors.rightMargin: 0
+            anchors.topMargin: 0
+            anchors.bottomMargin: 0
+            border.width: 1
+            border.color: {
+                if (control.down) {
+                    return Kirigami.Theme.alternateBackgroundColor
+                } else if (control.flat) {
+                    return flatColor
+                } else if (hovered){return Impl.Theme.separatorColor()} else {
+                    return Kirigami.Theme.backgroundColor
+                }
+            }
+            radius: Impl.Units.smallRadius
+        }
+        DropShadow {
+            anchors.fill: parent
+            horizontalOffset: -3
+            verticalOffset: 3
+            radius: 8.0
+            samples: 17
+            color: "#20000000"
+            source: butterfly
         }
     }
 
