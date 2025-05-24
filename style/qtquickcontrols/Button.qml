@@ -90,7 +90,7 @@ T.Button {
         anchors.fill: parent
         color: {
             if (highlightBackground) {
-                return Kirigami.Theme.alternateBackgroundColor
+                return Kirigami.Theme.focusColor
             } else if (control.flat) {
                 return flatColor
             } else if (hovered){return Impl.Theme.separatorColor()} else {
@@ -109,7 +109,7 @@ T.Button {
         id: butterfly
         color: {
             if (highlightBackground) {
-                return Kirigami.Theme.alternateBackgroundColor
+                return Kirigami.Theme.focusColor
             } else if (control.flat) {
                 return flatColor
             } else if (hovered){return Impl.Theme.separatorColor()} else {
@@ -122,7 +122,7 @@ T.Button {
         border.width: 1
         border.color: {
             if (highlightBackground) {
-                return Kirigami.Theme.alternateBackgroundColor
+                return Kirigami.Theme.focusColor
             } else if (control.flat) {
                 return flatColor
             } else if (hovered){return Impl.Theme.separatorColor()} else {
